@@ -51,4 +51,8 @@ git clone --depth=1 https://github.com/pystardust/ani-cli ~/.local/src/ani-cli \
 cd "$HOME" || exit
 # find ~/.local/src/. -maxdepth 1 ! -name 'suckless' -type d -exec rm -rf {} +
 
+# fzf - A command-line fuzzy finder
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
 exit

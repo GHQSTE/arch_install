@@ -27,8 +27,4 @@ doas pacman -Syu --noconfirm xdg-user-dirs \
   nodejs npm ripgrep fd
 npm -g install npm
 
-# fzf - A command-line fuzzy finder
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
-
 exit
