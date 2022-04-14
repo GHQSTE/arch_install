@@ -9,7 +9,7 @@ git clone --depth=1 https://aur.archlinux.org/paru-bin.git ~/.local/src/paru-bin
   && cd ~/.local/src/paru-bin && makepkg -si --noconfirm && cd "$HOME" || exit
 
 paru -S --useask --skipreview --noconfirm \
-  libxft-bgra nsxiv mpdris2
+  libxft-bgra nsxiv mpdris2 nerd-fonts-jetbrains-mono
 
 # Install lf - terminal file manager on Unix (Go version >= 1.17):
 env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest
