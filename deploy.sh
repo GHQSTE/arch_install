@@ -24,7 +24,7 @@ cd "$HOME" || exit
 rm -f .gitignore
 
 doas pacman -Syu --noconfirm xdg-user-dirs \
-  nodejs npm ripgrep fd
+  npm ripgrep fd
 npm -g install npm
 
 exit

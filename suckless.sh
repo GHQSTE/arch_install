@@ -2,7 +2,6 @@
 
 printf '\033c'
 cd "$HOME" || exit
-fc-cache -fv
 
 # AUR
 git clone --depth=1 https://aur.archlinux.org/paru-bin.git ~/.local/src/paru-bin \
@@ -54,5 +53,7 @@ cd "$HOME" || exit
 # fzf - A command-line fuzzy finder
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
+
+fc-cache -fv
 
 exit

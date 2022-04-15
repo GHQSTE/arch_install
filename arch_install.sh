@@ -58,7 +58,6 @@ systemctl enable NetworkManager
 # Audio & Video
 pacman -Syu --noconfirm \
   pipewire pipewire-pulse pipewire-jack wireplumber \
-  alsa-firmware sof-firmware alsa-ucm-conf \
   mpv ffmpeg alsa-utils mpd mpc playerctl ncmpcpp obs-studio
 
 pacman -Syu --noconfirm \
