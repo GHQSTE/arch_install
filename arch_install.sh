@@ -75,7 +75,7 @@ pacman -Syu --noconfirm \
   shellcheck checkbashisms dunst libnotify android-tools ifuse \
   flameshot yt-dlp redshift neofetch screenkey firefox \
   xwallpaper xdotool xclip xsel xbindkeys xcompmgr pass trash-cli \
-  bash-completion lazygit fzy lxsession-gtk3
+  bash-completion lazygit fzy
 
 # setup dash to be symlinked to sh instead of bash.
 ln -sfT dash /usr/bin/sh
