@@ -5,7 +5,7 @@ cd "$HOME" || exit
 
 # dirs
 mkdir -p ~/.config ~/.local/state/bash ~/.local/state/zsh ~/.local/state/mpd \
-  ~/.local/state/mpd/playlists ~/.local/state/ncmpcpp
+  ~/.local/state/mpd/playlists ~/.local/state/ncmpcpp ~/.cache
 
 # xdg-user-dirs
 mkdir -p \
