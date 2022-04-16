@@ -25,6 +25,7 @@ rm -f .gitignore
 
 doas pacman -Syu --noconfirm xdg-user-dirs \
   npm ripgrep fd
-npm -g install npm
+
+doas npm install -g npm
 
 exit
