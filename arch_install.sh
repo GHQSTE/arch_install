@@ -45,8 +45,8 @@ locale-gen ; echo "LANG=en_US.UTF-8" > /etc/locale.conf
 echo "Enter hostname: " ; read -r hostname
 echo "$hostname" > /etc/hostname
 {
-echo "127.0.0.1       localhost" 
-echo "::1             localhost" 
+echo "127.0.0.1       localhost"
+echo "::1             localhost"
 echo "127.0.1.1       $hostname"
 } >> /etc/hosts
 echo "Enter root/superuser password:" ; passwd
@@ -60,7 +60,7 @@ pacman -Syu --noconfirm \
 
 pacman -Syu --noconfirm \
   xorg xorg-xinit libxrandr libx11 libxinerama fontconfig xf86-video-ati \
-  man-db man-pages vi neovim git stow rsync wget aria2 tmux opendoas dash \
+  man-db man-pages neovim git stow rsync wget aria2 tmux opendoas dash zsh\
   noto-fonts noto-fonts-emoji noto-fonts-cjk terminus-font libertinus-font \
   $(pacman -Ssq ttf- | grep -v 'ttf-nerd-fonts-symbols-mono\|ttf-linux-libertine') \
   adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts otf-ipafont \
