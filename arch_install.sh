@@ -27,7 +27,7 @@ mount "$root_partition" /mnt
 mount --mkdir "$efi_system_partition" /mnt/boot
 swapon "$swap_partition"
 
-pacstrap /mnt base base-devel linux linux-firmware linux-headers
+pacstrap /mnt base base-devel linux linux-firmware linux-headers vim
 genfstab -U /mnt >> /mnt/etc/fstab
 sed '1,/^#part2$/d' $(basename "$0") > /mnt/arch_install2.sh
 chmod +x /mnt/arch_install2.sh
@@ -50,29 +50,9 @@ echo "127.0.1.1       $hostname"
 } >> /etc/hosts
 echo "Enter root/superuser password:" ; passwd
 pacman -Syu --noconfirm grub efibootmgr networkmanager dhcpcd intel-ucode \
-  udiskie terminus-font
+  udiskie terminus-font man-db man-pages git stow opendoas dash rsync
+
 systemctl enable NetworkManager
-
-# Audio & Video
-pacman -Syu --noconfirm \
-  pipewire pipewire-pulse pipewire-jack wireplumber \
-  mpv ffmpeg alsa-utils mpd mpc playerctl ncmpcpp obs-studio
-
-pacman -Syu --noconfirm \
-  xorg xorg-xinit libxrandr libx11 libxinerama fontconfig xf86-video-ati \
-  man-db man-pages neovim git stow rsync wget aria2 tmux opendoas dash zsh\
-  noto-fonts noto-fonts-emoji noto-fonts-cjk libertinus-font \
-  $(pacman -Ssq ttf- | grep -v 'ttf-nerd-fonts-symbols-mono\|ttf-linux-libertine') \
-  adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts otf-ipafont \
-  zathura zathura-pdf-mupdf zathura-djvu \
-  libgccjit m17n-lib \
-  python python-pip imagemagick \
-  go bat mediainfo ffmpegthumbnailer \
-  p7zip zip unzip liblzf dosfstools ntfs-3g \
-  shellcheck checkbashisms dunst libnotify android-tools ifuse \
-  flameshot yt-dlp redshift neofetch screenkey firefox \
-  xwallpaper xdotool xclip xsel xbindkeys xcompmgr pass trash-cli \
-  bash-completion lazygit fzy
 
 # setup dash to be symlinked to sh instead of bash.
 ln -sfT dash /usr/bin/sh

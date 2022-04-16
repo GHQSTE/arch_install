@@ -25,8 +25,26 @@ cd "$HOME" || exit
 
 rm -f .gitignore .bash_history
 
-doas pacman -Syu --noconfirm xdg-user-dirs \
-  npm ripgrep fd
+# Audio & Video
+doas pacman -Syu --noconfirm \
+  pipewire pipewire-pulse pipewire-jack wireplumber \
+  mpv ffmpeg alsa-utils mpd mpc playerctl ncmpcpp obs-studio
+
+doas pacman -Syu --noconfirm \
+  xorg xorg-xinit libxrandr libx11 libxinerama fontconfig xf86-video-ati \
+  neovim wget aria2 tmux zsh \
+  noto-fonts noto-fonts-emoji noto-fonts-cjk libertinus-font \
+  $(pacman -Ssq ttf- | grep -v 'ttf-nerd-fonts-symbols-mono\|ttf-linux-libertine') \
+  adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts otf-ipafont \
+  zathura zathura-pdf-mupdf zathura-djvu \
+  libgccjit m17n-lib \
+  python python-pip imagemagick \
+  go bat mediainfo ffmpegthumbnailer \
+  p7zip zip unzip liblzf dosfstools ntfs-3g \
+  shellcheck checkbashisms dunst libnotify android-tools ifuse \
+  flameshot yt-dlp redshift neofetch screenkey firefox \
+  xwallpaper xdotool xclip xsel xbindkeys xcompmgr pass trash-cli \
+  bash-completion lazygit fzy xdg-user-dirs npm ripgrep fd
 
 doas npm install -g npm
 
