@@ -50,8 +50,9 @@ echo "::1             localhost"
 echo "127.0.1.1       $hostname"
 } >> /etc/hosts
 echo "Enter root/superuser password:" ; passwd
-pacman -Syu --noconfirm grub efibootmgr networkmanager dhcpcd intel-ucode udiskie
-systemctl enable NetworkManager 
+pacman -Syu --noconfirm grub efibootmgr networkmanager dhcpcd intel-ucode \
+  udiskie terminus-font
+systemctl enable NetworkManager
 
 # Audio & Video
 pacman -Syu --noconfirm \
@@ -61,7 +62,7 @@ pacman -Syu --noconfirm \
 pacman -Syu --noconfirm \
   xorg xorg-xinit libxrandr libx11 libxinerama fontconfig xf86-video-ati \
   man-db man-pages neovim git stow rsync wget aria2 tmux opendoas dash zsh\
-  noto-fonts noto-fonts-emoji noto-fonts-cjk terminus-font libertinus-font \
+  noto-fonts noto-fonts-emoji noto-fonts-cjk libertinus-font \
   $(pacman -Ssq ttf- | grep -v 'ttf-nerd-fonts-symbols-mono\|ttf-linux-libertine') \
   adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts otf-ipafont \
   zathura zathura-pdf-mupdf zathura-djvu \
