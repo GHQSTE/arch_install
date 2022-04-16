@@ -6,7 +6,7 @@ setfont ter-v22b
 iso=$(curl -4 ifconfig.co/country-iso)
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist-bak
 reflector -a 48 -c "$iso" -f 5 -l 5 --sort rate --save /etc/pacman.d/mirrorlist \
-	--download-timeout 60 --verbose
+  --download-timeout 60 --verbose
 
 timedatectl set-ntp true
 sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
