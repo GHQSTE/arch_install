@@ -28,7 +28,7 @@ rm -f .gitignore .bash_history
 # Audio & Video
 doas pacman -Syu --noconfirm \
   pipewire pipewire-pulse pipewire-jack wireplumber \
-  mpv ffmpeg alsa-utils mpd mpc playerctl ncmpcpp obs-studio
+  mpv ffmpeg alsa-utils pulsemixer mpd mpc playerctl ncmpcpp obs-studio
 
 doas pacman -Syu --noconfirm \
   xorg xorg-xinit libxrandr libx11 libxinerama fontconfig xf86-video-ati \
