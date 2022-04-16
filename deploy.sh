@@ -13,7 +13,7 @@ mkdir -p \
   ~/xdg-user-dirs/Videos ~/xdg-user-dirs/Documents ~/xdg-user-dirs/Desktop \
   ~/xdg-user-dirs/Templates ~/xdg-user-dirs/Public
 
-rm -rf .bash_profile .bashrc .bash_login .bash_logout
+rm -rf .bash_profile .bashrc .bash_login .bash_history .bash_logout
 
 # dotfiles
 git clone https://github.com/GHQSTE/dotfiles.git ~/.dotfiles \
