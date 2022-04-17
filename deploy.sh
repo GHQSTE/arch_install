@@ -27,7 +27,7 @@ rm -f .gitignore .bash_history
 
 # Audio & Video
 doas pacman -Syu --noconfirm \
-  pipewire pipewire-pulse pipewire-jack wireplumber \
+  pipewire pipewire-jack pipewire-alsa pipewire-pulse wireplumber qjackctl \
   mpv ffmpeg alsa-utils pulsemixer mpd mpc playerctl ncmpcpp obs-studio
 
 doas pacman -Syu --noconfirm \
@@ -42,7 +42,7 @@ doas pacman -Syu --noconfirm \
   go bat mediainfo ffmpegthumbnailer \
   p7zip zip unzip liblzf dosfstools ntfs-3g \
   shellcheck checkbashisms dunst libnotify android-tools ifuse \
-  flameshot yt-dlp redshift neofetch screenkey firefox \
+  flameshot redshift neofetch screenkey firefox \
   xwallpaper xdotool xclip xsel xbindkeys xcompmgr pass trash-cli \
   bash-completion lazygit fzy xdg-user-dirs npm ripgrep fd
 
@@ -61,9 +61,9 @@ paru -S --useask --skipreview --noconfirm \
 env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest
 
 # Installing python tools/programs
-python3 -m pip install --user wheel
-python3 -m pip install --user \
-  ueberzug pywal dbus-python \
+python3 -m pip install -U --user wheel
+python3 -m pip install -U --user \
+  ueberzug pywal dbus-python yt-dlp \
   mutagen brotli pycryptodomex websockets # yt-dlp dependencies for thumbnail-embedding.
 
 # suckless software
