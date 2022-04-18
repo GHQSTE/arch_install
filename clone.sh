@@ -5,12 +5,15 @@ doas pacman -Syu --noconfirm \
   pipewire pipewire-jack pipewire-alsa pipewire-pulse wireplumber qjackctl \
   mpv ffmpeg alsa-utils pulsemixer mpd mpc playerctl ncmpcpp obs-studio
 
+# fonts
+doas pacman -S --noconfirm \
+  noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra libertinus-font \
+  $(pacman -Ssq ttf- | grep -v 'ttf-nerd-fonts-symbols-mono\|ttf-linux-libertine\|ttf-nerd-fonts-symbols') \
+  adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts otf-ipafont
+
 doas pacman -Syu --noconfirm \
   xorg xorg-xinit libxrandr libx11 libxinerama fontconfig xf86-video-ati \
   neovim wget aria2 tmux zsh \
-  noto-fonts noto-fonts-emoji noto-fonts-cjk libertinus-font \
-  $(pacman -Ssq ttf- | grep -v 'ttf-nerd-fonts-symbols-mono\|ttf-linux-libertine\|ttf-nerd-fonts-symbols') \
-  adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts otf-ipafont \
   zathura zathura-pdf-mupdf zathura-djvu \
   libgccjit m17n-lib \
   python python-pip imagemagick \
@@ -22,8 +25,6 @@ doas pacman -Syu --noconfirm \
   bash-completion lazygit fzy xdg-user-dirs npm ripgrep fd
 
 doas npm install -g npm
-
-. ~/.bash_profile && . ~/.bashrc
 
 # AUR
 git clone --depth=1 https://aur.archlinux.org/paru-bin.git ~/.local/src/paru-bin \
