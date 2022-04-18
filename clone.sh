@@ -9,7 +9,7 @@ doas pacman -Syu --noconfirm \
   xorg xorg-xinit libxrandr libx11 libxinerama fontconfig xf86-video-ati \
   neovim wget aria2 tmux zsh \
   noto-fonts noto-fonts-emoji noto-fonts-cjk libertinus-font \
-  $(pacman -Ssq ttf- | grep -v 'ttf-nerd-fonts-symbols-mono\|ttf-linux-libertine') \
+  $(pacman -Ssq ttf- | grep -v 'ttf-nerd-fonts-symbols-mono\|ttf-linux-libertine\|ttf-nerd-fonts-symbols') \
   adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts otf-ipafont \
   zathura zathura-pdf-mupdf zathura-djvu \
   libgccjit m17n-lib \
@@ -30,7 +30,7 @@ git clone --depth=1 https://aur.archlinux.org/paru-bin.git ~/.local/src/paru-bin
   && cd ~/.local/src/paru-bin && makepkg -si --noconfirm && cd "$HOME" || exit
 
 paru -S --useask --skipreview --noconfirm \
-  libxft-bgra nsxiv mpdris2 nerd-fonts-jetbrains-mono
+  libxft-bgra nsxiv mpdris2 nerd-fonts-jetbrains-mono ttf-monapo
 
 # Install lf - terminal file manager on Unix (Go version >= 1.17):
 env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest
