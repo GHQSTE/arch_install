@@ -14,8 +14,8 @@ doas pacman -S --noconfirm \
 doas pacman -Syu --noconfirm \
   xorg xorg-xinit libxrandr libx11 libxinerama fontconfig xf86-video-ati \
   neovim wget aria2 tmux zsh \
-  zathura zathura-pdf-mupdf zathura-djvu \
-  libgccjit m17n-lib \
+  zathura zathura-pdf-mupdf zathura-djvu texlive-most texlive-lang \
+  libgccjit m17n-lib emacs \
   python python-pip imagemagick \
   go bat mediainfo ffmpegthumbnailer \
   p7zip zip unzip liblzf dosfstools ntfs-3g \
