@@ -12,17 +12,17 @@ doas pacman -S --noconfirm \
   adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts otf-ipafont
 
 doas pacman -Syu --noconfirm \
-  xorg xorg-xinit libxrandr libx11 libxinerama fontconfig xf86-video-ati \
+  xorg xorg-xinit libxrandr libx11 libxinerama xf86-video-ati \
   neovim wget aria2 tmux zsh \
   zathura zathura-pdf-mupdf zathura-djvu texlive-most texlive-lang \
   libgccjit m17n-lib emacs \
   python python-pip imagemagick \
   go bat mediainfo ffmpegthumbnailer \
   p7zip zip unzip liblzf dosfstools ntfs-3g \
-  shellcheck checkbashisms dunst libnotify android-tools ifuse \
+  shellcheck checkbashisms libnotify android-tools ifuse \
   flameshot redshift neofetch screenkey firefox \
   xwallpaper xdotool xclip xsel xbindkeys xcompmgr pass trash-cli \
-  bash-completion lazygit fzy xdg-user-dirs npm ripgrep fd
+  bash-completion fzy xdg-user-dirs npm ripgrep fd nnn
 
 doas npm install -g npm
 
@@ -32,9 +32,6 @@ git clone --depth=1 https://aur.archlinux.org/paru-bin.git ~/.local/src/paru-bin
 
 paru -S --useask --skipreview --noconfirm \
   libxft-bgra nsxiv mpdris2 nerd-fonts-jetbrains-mono ttf-monapo ttf-vlgothic
-
-# Install lf - terminal file manager on Unix (Go version >= 1.17):
-env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest
 
 # Installing python tools/programs
 python3 -m pip install -U --user wheel
@@ -80,4 +77,3 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 exit
-

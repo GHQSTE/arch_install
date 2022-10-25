@@ -50,7 +50,7 @@ echo "127.0.1.1       $hostname"
 } >> /etc/hosts
 echo "Enter root/superuser password:" ; passwd
 pacman -Syu --noconfirm grub efibootmgr networkmanager dhcpcd intel-ucode \
-  udiskie terminus-font man-db man-pages git stow opendoas dash rsync
+  udiskie terminus-font man-db man-pages git stow opendoas dash rsync usbutils
 
 systemctl enable NetworkManager
 
