@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Audio & Video
-sudo pacman -Syu --noconfirm \
+sudo pacman -S --noconfirm \
   pipewire pipewire-jack pipewire-alsa pipewire-pulse wireplumber qjackctl \
   mpv ffmpeg alsa-utils pulsemixer mpd mpc playerctl ncmpcpp obs-studio
 
@@ -11,9 +11,9 @@ sudo pacman -S --noconfirm \
   $(pacman -Ssq ttf- | grep -v 'ttf-nerd-fonts-symbols-mono\|ttf-linux-libertine\|ttf-nerd-fonts-symbols') \
   adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts otf-ipafont
 
-sudo pacman -Syu --noconfirm \
+sudo pacman -S --noconfirm \
   xorg xorg-xinit libxrandr libx11 libxinerama xf86-video-ati \
-  neovim wget aria2 tmux zsh \
+  wget aria2 tmux zsh \
   zathura zathura-pdf-mupdf zathura-djvu texlive-most texlive-lang \
   libgccjit m17n-lib emacs \
   python python-pip imagemagick \
@@ -22,7 +22,7 @@ sudo pacman -Syu --noconfirm \
   shellcheck checkbashisms libnotify android-tools ifuse \
   flameshot redshift neofetch screenkey firefox \
   xwallpaper xdotool xclip xsel xbindkeys xcompmgr pass trash-cli \
-  bash-completion fzy xdg-user-dirs npm ripgrep fd nnn
+  bash-completion fzy xdg-user-dirs npm ripgrep fd nnn slock
 
 sudo npm install -g npm
 
@@ -53,15 +53,11 @@ git clone https://github.com/GHQSTE/dmenu ~/.local/src/suckless/dmenu \
   && cd ~/.local/src/suckless/dmenu && sudo make clean install \
   && make clean && rm -f config.h
 
-git clone https://github.com/GHQSTE/slock ~/.local/src/suckless/slock \
-  && cd ~/.local/src/suckless/slock && sudo make clean install \
-  && make clean && rm -f config.h
-
 # Stuff that rocks
 git clone --depth=1 https://github.com/GHQSTE/grabc ~/.local/src/suckless/rocks/grabc \
   && cd ~/.local/src/suckless/rocks/grabc && make && sudo make install
 
-git clone --depth=1 https://github.com/GHQSTE/xbanish ~/.local/src/suckless/rocks/xbanish \
+git clone --depth=1 https://github.com/jcs/xbanish.git ~/.local/src/suckless/rocks/xbanish \
   && cd ~/.local/src/suckless/rocks/xbanish && sudo make clean install
 
 git clone --depth=1 https://github.com/pystardust/ani-cli ~/.local/src/ani-cli \
