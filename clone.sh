@@ -1,15 +1,13 @@
 #!/bin/bash
 
+# fonts
+sudo pacman -S --noconfirm \
+  noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra libertinus-font
+
 # Audio & Video
 sudo pacman -S --noconfirm \
   pipewire pipewire-jack pipewire-alsa pipewire-pulse wireplumber qjackctl \
   mpv ffmpeg alsa-utils pulsemixer mpd mpc playerctl ncmpcpp obs-studio
-
-# fonts
-sudo pacman -S --noconfirm \
-  noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra libertinus-font \
-  $(pacman -Ssq ttf- | grep -v 'ttf-nerd-fonts-symbols-mono\|ttf-linux-libertine\|ttf-nerd-fonts-symbols') \
-  adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts otf-ipafont
 
 sudo pacman -S --noconfirm \
   xorg xorg-xinit libxrandr libx11 libxinerama xf86-video-ati \
@@ -31,7 +29,7 @@ git clone --depth=1 https://aur.archlinux.org/paru-bin.git ~/.local/src/paru-bin
   && cd ~/.local/src/paru-bin && makepkg -si --noconfirm && cd "$HOME" || exit
 
 paru -S --useask --skipreview --noconfirm \
-  libxft-bgra nsxiv mpdris2 nerd-fonts-jetbrains-mono ttf-monapo ttf-vlgothic
+  libxft-bgra nsxiv mpdris2 nerd-fonts-jetbrains-mono
 
 # Installing python tools/programs
 python3 -m pip install -U --user wheel
