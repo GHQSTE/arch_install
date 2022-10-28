@@ -8,7 +8,7 @@ rm -rf .bash_profile .bashrc .bash_login .bash_history .bash_logout \
 
 # dirs
 mkdir -p ~/.config ~/.local/state/bash ~/.local/state/zsh ~/.local/state/mpd \
-  ~/.local/state/mpd/playlists ~/.local/state/ncmpcpp ~/.cache
+  ~/.local/state/mpd/playlists ~/.local/state/ncmpcpp ~/.cache ~/.vim/undo
 
 # xdg-user-dirs
 mkdir -p \

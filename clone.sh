@@ -13,11 +13,10 @@ sudo pacman -S --noconfirm \
   xorg xorg-xinit libxrandr libx11 libxinerama xf86-video-ati \
   wget aria2 tmux zsh \
   zathura zathura-pdf-mupdf zathura-djvu texlive-most texlive-lang \
-  libgccjit m17n-lib emacs \
   python python-pip imagemagick \
   bat mediainfo ffmpegthumbnailer \
   zip unzip dosfstools ntfs-3g \
-  shellcheck checkbashisms libnotify android-tools ifuse \
+  shellcheck checkbashisms libnotify android-tools \
   flameshot redshift neofetch screenkey firefox \
   xwallpaper xdotool xclip xsel xbindkeys xcompmgr pass trash-cli \
   bash-completion fzy xdg-user-dirs npm ripgrep fd nnn slock
