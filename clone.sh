@@ -25,11 +25,11 @@ sudo pacman -S --noconfirm \
 sudo npm install -g npm
 
 # AUR
-git clone --depth=1 https://aur.archlinux.org/paru-bin.git ~/.local/src/paru-bin \
-  && cd ~/.local/src/paru-bin && makepkg -si --noconfirm && cd "$HOME" || exit
+git clone --depth=1 https://github.com/Morganamilo/paru.git ~/.local/src/paru \
+  && cd ~/.local/src/paru && makepkg -si --noconfirm && cd "$HOME" || exit
 
 paru -S --useask --skipreview --noconfirm \
-  libxft-bgra nsxiv mpdris2 nerd-fonts-jetbrains-mono
+  nsxiv mpdris2 nerd-fonts-jetbrains-mono
 
 # Installing python tools/programs
 python3 -m pip install -U --user wheel
