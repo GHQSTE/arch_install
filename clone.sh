@@ -15,7 +15,7 @@ sudo pacman -S --noconfirm \
   zathura zathura-pdf-mupdf zathura-djvu texlive-most texlive-lang \
   libgccjit m17n-lib emacs \
   python python-pip imagemagick \
-  go bat mediainfo ffmpegthumbnailer \
+  bat mediainfo ffmpegthumbnailer \
   p7zip zip unzip liblzf dosfstools ntfs-3g \
   shellcheck checkbashisms libnotify android-tools ifuse \
   flameshot redshift neofetch screenkey firefox \
