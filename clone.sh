@@ -66,7 +66,7 @@ cd "$HOME" || exit
 fc-cache -fv
 
 # fzf - A command-line fuzzy finder
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+git clone --depth=1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 exit
