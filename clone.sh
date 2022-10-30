@@ -24,10 +24,10 @@ sudo pacman -S --noconfirm \
 sudo npm install -g npm
 
 # AUR
-git clone --depth=1 https://github.com/Morganamilo/paru.git ~/.local/src/paru \
-  && cd ~/.local/src/paru && makepkg -si --noconfirm && cd "$HOME" || exit
+git clone --depth=1 https://github.com/Jguer/yay.git ~/.local/src/yay \
+  && cd ~/.local/src/yay && makepkg -si --noconfirm && cd "$HOME" || exit
 
-paru -S --useask --skipreview --noconfirm \
+yay -S --useask --noconfirm \
   nsxiv mpdris2 nerd-fonts-jetbrains-mono
 
 # Installing python tools/programs
