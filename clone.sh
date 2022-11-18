@@ -1,34 +1,35 @@
 #!/bin/bash
 
+# AUR
+git clone --depth 1 https://github.com/Jguer/yay.git ~/.local/src/yay \
+  && cd ~/.local/src/yay && makepkg -si --noconfirm && cd "$HOME" || exit
+
 # fonts
-sudo pacman -S --noconfirm \
-  noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra libertinus-font
+yay -S --useask --noconfirm \
+  noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra libertinus-font \
+  nerd-fonts-jetbrains-mono
 
 # Audio & Video
-sudo pacman -S --noconfirm \
-  pipewire pipewire-jack pipewire-alsa pipewire-pulse wireplumber qjackctl \
+yay -S --noconfirm \
+  pipewire-jack pipewire-alsa pipewire-pulse qjackctl wireplumber \
   mpv ffmpeg alsa-utils pulsemixer mpd mpc playerctl ncmpcpp obs-studio
 
-sudo pacman -S --noconfirm \
-  xorg xorg-xinit libxrandr libx11 libxinerama xf86-video-ati \
-  wget aria2 tmux zsh \
+yay -S --noconfirm \
+  xorg xorg-xinit xf86-video-ati \
   zathura zathura-pdf-mupdf zathura-djvu texlive-most texlive-lang \
+  wget aria2 tmux \
   python python-pip imagemagick \
   bat mediainfo ffmpegthumbnailer \
   zip unzip dosfstools ntfs-3g \
   shellcheck checkbashisms libnotify android-tools \
   flameshot redshift neofetch screenkey firefox \
   xwallpaper xdotool xclip xsel xbindkeys xcompmgr pass trash-cli \
-  bash-completion fzy xdg-user-dirs npm ripgrep fd nnn slock
+  bash-completion xdg-user-dirs npm ripgrep fd nnn slock
 
 sudo npm install -g npm
 
-# AUR
-git clone --depth=1 https://github.com/Jguer/yay.git ~/.local/src/yay \
-  && cd ~/.local/src/yay && makepkg -si --noconfirm && cd "$HOME" || exit
-
 yay -S --useask --noconfirm \
-  nsxiv mpdris2 nerd-fonts-jetbrains-mono
+  nsxiv mpdris2
 
 # Installing python tools/programs
 python3 -m pip install -U --user wheel
@@ -51,13 +52,13 @@ git clone https://github.com/GHQSTE/dmenu ~/.local/src/suckless/dmenu \
   && make clean && rm -f config.h
 
 # Stuff that rocks
-git clone --depth=1 https://github.com/GHQSTE/grabc ~/.local/src/suckless/rocks/grabc \
+git clone --depth 1 https://github.com/GHQSTE/grabc ~/.local/src/suckless/rocks/grabc \
   && cd ~/.local/src/suckless/rocks/grabc && make && sudo make install
 
-git clone --depth=1 https://github.com/jcs/xbanish.git ~/.local/src/suckless/rocks/xbanish \
+git clone --depth 1 https://github.com/jcs/xbanish.git ~/.local/src/suckless/rocks/xbanish \
   && cd ~/.local/src/suckless/rocks/xbanish && sudo make clean install
 
-git clone --depth=1 https://github.com/pystardust/ani-cli ~/.local/src/ani-cli \
+git clone --depth 1 https://github.com/pystardust/ani-cli ~/.local/src/ani-cli \
   && sudo cp ~/.local/src/ani-cli/ani-cli /usr/local/bin/ani-cli
 
 cd "$HOME" || exit
@@ -65,8 +66,6 @@ cd "$HOME" || exit
 
 fc-cache -fv
 
-# fzf - A command-line fuzzy finder
-git clone --depth=1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+sh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.sh)
 
 exit
