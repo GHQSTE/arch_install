@@ -1,8 +1,7 @@
 #!/bin/sh
 
 #part1
-printf '\033c'
-setfont ter-v22b
+clear
 
 # Partitioning
 lsblk
@@ -33,8 +32,8 @@ arch-chroot /mnt ./arch_install2.sh ; exit
 
 #part2
 printf '\033c'
-sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
-sed -i 's/^#color/color/' /etc/pacman.conf
+sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
+sed -i 's/^#Color/Color/' /etc/pacman.conf
 ln -sf /usr/share/zoneinfo/Asia/Dhaka /etc/localtime ; hwclock --systohc
 sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen ; echo "LANG=en_US.UTF-8" > /etc/locale.conf
@@ -47,13 +46,10 @@ echo "127.0.1.1       $hostname"
 } >> /etc/hosts
 echo "Enter root/superuser password:" ; passwd
 pacman -Syu --noconfirm grub efibootmgr networkmanager dhcpcd intel-ucode \
-  udiskie terminus-font man-db man-pages git stow rsync usbutils
+  udiskie man-db man-pages git stow rsync usbutils
 
 systemctl enable NetworkManager
-
 sed -i 's/^# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
-
-echo "FONT=ter-v22b" > /etc/vconsole.conf
 echo "Enter username:" ; read -r username
 useradd -m -G wheel -s /usr/bin/zsh "$username" ; passwd "$username"
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
