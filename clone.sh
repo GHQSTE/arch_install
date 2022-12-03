@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # AUR
-git clone --depth 1 https://github.com/Jguer/yay.git ~/.local/src/yay \
+git clone https://aur.archlinux.org/yay.git ~/.local/src/yay \
   && cd ~/.local/src/yay && makepkg -si --noconfirm && cd "$HOME" || exit
 
 # fonts
@@ -10,32 +10,27 @@ yay -S --useask --noconfirm \
   nerd-fonts-jetbrains-mono
 
 # Audio & Video
-yay -S --noconfirm \
+yay -S --useask --noconfirm \
   pipewire-jack pipewire-alsa pipewire-pulse qjackctl wireplumber \
-  mpv ffmpeg alsa-utils pulsemixer mpd mpc playerctl ncmpcpp obs-studio
+  mpv ffmpeg alsa-utils pulsemixer mpd mpdris2 playerctl ncmpcpp obs-studio
 
 yay -S --noconfirm \
-  xorg xorg-xinit xf86-video-ati \
-  zathura zathura-pdf-mupdf zathura-djvu texlive-most texlive-lang \
+  xorg xorg-xinit \
+  zathura zathura-pdf-mupdf zathura-djvu \
   wget aria2 tmux \
   python python-pip imagemagick \
   bat mediainfo ffmpegthumbnailer \
   zip unzip dosfstools ntfs-3g \
   shellcheck checkbashisms libnotify android-tools \
   flameshot redshift neofetch screenkey firefox \
-  xwallpaper xdotool xclip xsel xbindkeys xcompmgr pass trash-cli \
-  bash-completion xdg-user-dirs npm ripgrep fd nnn slock
+  xwallpaper xdotool xclip xsel xbindkeys pass trash-cli \
+  bash-completion xdg-user-dirs npm ripgrep fd nnn slock discord nsxiv
 
 sudo npm install -g npm
 
-yay -S --useask --noconfirm \
-  nsxiv mpdris2
-
 # Installing python tools/programs
 python3 -m pip install -U --user wheel
-python3 -m pip install -U --user \
-  ueberzug pywal dbus-python yt-dlp \
-  mutagen brotli pycryptodomex websockets # yt-dlp dependencies for thumbnail-embedding.
+python3 -m pip install -U --user pywal dbus-python yt-dlp
 
 # suckless software
 git clone https://github.com/GHQSTE/dwm ~/.local/src/suckless/dwm \
