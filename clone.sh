@@ -20,7 +20,7 @@ yay -S --noconfirm \
   wget aria2 tmux \
   python python-pip imagemagick \
   bat mediainfo ffmpegthumbnailer \
-  zip unzip dosfstools exfatprogs ntfs-3g \
+  zip unzip dosfstools exfatprogs ntfs-3g udiskie \
   shellcheck checkbashisms libnotify android-tools \
   flameshot redshift neofetch screenkey firefox \
   xwallpaper xdotool xclip xsel xbindkeys xcompmgr pass trash-cli \
