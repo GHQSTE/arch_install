@@ -20,10 +20,10 @@ yay -S --noconfirm \
   wget aria2 tmux \
   python python-pip imagemagick \
   bat mediainfo ffmpegthumbnailer \
-  zip unzip dosfstools ntfs-3g \
+  zip unzip dosfstools exfatprogs ntfs-3g \
   shellcheck checkbashisms libnotify android-tools \
   flameshot redshift neofetch screenkey firefox \
-  xwallpaper xdotool xclip xsel xbindkeys pass trash-cli \
+  xwallpaper xdotool xclip xsel xbindkeys xcompmgr pass trash-cli \
   bash-completion xdg-user-dirs npm ripgrep fd nnn slock discord nsxiv
 
 sudo npm install -g npm
