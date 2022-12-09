@@ -4,7 +4,17 @@
 clear
 lsblk
 echo "Enter the drive, e.g. /dev/sda :"
-read -r drive ; cfdisk "$drive"
+read -r drive
+
+hdparm -I "$drive"
+echo -n mem > /sys/power/state
+hdparm -I "$drive"
+hdparm --user-master u --security-set-pass p "$drive"
+hdparm -I "$drive"
+hdparm --user-master u --security-erase-enhanced p "$drive"
+hdparm -I "$drive"
+
+cfdisk "$drive"
 echo "Enter Linux x86-64 root partition, e.g. /dev/sda3 :"
 read -r root_partition ; mkfs.ext4 "$root_partition"
 echo "Enter the Linux swap partiton, e.g. /dev/sda2 :"
