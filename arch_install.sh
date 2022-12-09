@@ -17,7 +17,7 @@ mount --mkdir "$efi_system_partition" /mnt/boot
 swapon "$swap_partition"
 
 echo "Server = http://mirror.xeonbd.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
-pacstrap -K /mnt base base-devel linux-lts linux-firmware intel-ucode xf86-video-ati
+pacstrap -K /mnt base base-devel linux-zen linux-firmware intel-ucode xf86-video-ati
 genfstab -U /mnt >> /mnt/etc/fstab
 sed '1,/^#part2$/d' $(basename "$0") > /mnt/arch_install2.sh
 chmod +x /mnt/arch_install2.sh
@@ -47,7 +47,7 @@ pacman -S --noconfirm \
 systemctl enable NetworkManager
 sed -i 's/^# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
 echo "Enter username:" ; read -r username
-useradd -m -G wheel -s /usr/bin/zsh "$username" ; passwd "$username"
+useradd -m -G wheel -s /bin/bash "$username" ; passwd "$username"
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 echo "Pre-Installation Finished, Reboot Now"
