@@ -1,7 +1,33 @@
 #!/bin/bash
 
+printf '\033c'
+cd "$HOME" || exit
+
+rm -rf .bash_profile .bashrc .bash_login .bash_history .bash_logout \
+  .cache/ .viminfo
+
+# dirs
+mkdir -p ~/.config ~/.local/state/bash ~/.local/state/zsh ~/.local/state/mpd \
+  ~/.local/state/mpd/playlists ~/.local/state/ncmpcpp ~/.cache ~/.vim/undo
+
+# xdg-user-dirs
+mkdir -p \
+  ~/xdg-user-dirs/Downloads ~/xdg-user-dirs/Music ~/xdg-user-dirs/Pictures \
+  ~/xdg-user-dirs/Videos ~/xdg-user-dirs/Documents ~/xdg-user-dirs/Desktop \
+  ~/xdg-user-dirs/Templates ~/xdg-user-dirs/Public
+
+# dotfiles
+git clone https://github.com/GHQSTE/dotfiles.git ~/.dotfiles \
+  && cd .dotfiles/ && stow .
+
+cd "$HOME" || exit
+
+rm -f .gitignore .bash_history
+
+source ~/.bashrc
+
 # AUR
-git clone https://aur.archlinux.org/yay.git ~/.local/src/yay \
+git clone --depth 1 https://aur.archlinux.org/yay.git ~/.local/src/yay \
   && cd ~/.local/src/yay && makepkg -si --noconfirm && cd "$HOME" || exit
 
 # fonts
@@ -9,20 +35,16 @@ yay -S --useask --noconfirm \
   noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra libertinus-font \
   nerd-fonts-jetbrains-mono
 
-# Audio & Video
 yay -S --useask --noconfirm \
-  pipewire-jack pipewire-alsa pipewire-pulse qjackctl wireplumber \
-  mpv ffmpeg alsa-utils pulsemixer mpd mpdris2 playerctl ncmpcpp obs-studio
-
-yay -S --noconfirm \
+  pipewire pipewire-jack pipewire-alsa pipewire-pulse qjackctl wireplumber \
+  mpv ffmpeg alsa-utils pulsemixer mpd playerctl ncmpcpp obs-studio \
   xorg xorg-xinit \
   zathura zathura-pdf-mupdf zathura-djvu \
   wget aria2 tmux \
   python python-pip imagemagick \
-  bat mediainfo ffmpegthumbnailer \
   zip unzip dosfstools exfatprogs ntfs-3g udiskie \
   shellcheck checkbashisms libnotify android-tools \
-  flameshot redshift neofetch screenkey firefox \
+  flameshot maim redshift neofetch screenkey firefox \
   xwallpaper xdotool xclip xsel xbindkeys xcompmgr pass trash-cli \
   bash-completion xdg-user-dirs npm ripgrep fd nnn slock discord nsxiv
 
@@ -59,5 +81,8 @@ git clone --depth 1 https://github.com/pystardust/ani-cli ~/.local/src/ani-cli \
 cd "$HOME" || exit
 fc-cache -fv
 sh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.sh)
+
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 
 exit

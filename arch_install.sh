@@ -6,13 +6,9 @@ lsblk
 echo "Enter the drive, e.g. /dev/sda :"
 read -r drive
 
-hdparm -I "$drive"
 echo -n mem > /sys/power/state
-hdparm -I "$drive"
 hdparm --user-master u --security-set-pass p "$drive"
-hdparm -I "$drive"
 hdparm --user-master u --security-erase-enhanced p "$drive"
-hdparm -I "$drive"
 
 cfdisk "$drive"
 echo "Enter Linux x86-64 root partition, e.g. /dev/sda3 :"
