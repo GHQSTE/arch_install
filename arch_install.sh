@@ -47,7 +47,7 @@ echo "127.0.1.1       $hostname"
 echo "Enter root/superuser password:" ; passwd
 
 pacman -S --noconfirm \
-  neovim git stow zsh rsync man-db man-pages \
+  neovim vim git stow zsh rsync man-db man-pages \
   grub efibootmgr networkmanager dhcpcd
 
 systemctl enable NetworkManager
