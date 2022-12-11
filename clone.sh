@@ -42,7 +42,7 @@ yay -S --useask --noconfirm \
   zathura zathura-pdf-mupdf zathura-djvu \
   wget aria2 tmux \
   python python-pip imagemagick \
-  zip unzip dosfstools exfatprogs ntfs-3g udiskie \
+  zip unzip dosfstools exfatprogs ntfs-3g \
   shellcheck checkbashisms libnotify android-tools \
   flameshot maim redshift neofetch screenkey firefox \
   xwallpaper xdotool xclip xsel xbindkeys xcompmgr pass trash-cli \
