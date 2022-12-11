@@ -36,7 +36,7 @@ yay -S --useask --noconfirm \
   nerd-fonts-jetbrains-mono
 
 yay -S --useask --noconfirm \
-  pipewire pipewire-jack pipewire-alsa pipewire-pulse qjackctl wireplumber \
+  pipewire pipewire-pulse wireplumber \
   mpv ffmpeg alsa-utils pulsemixer mpd playerctl ncmpcpp obs-studio \
   xorg xorg-xinit \
   zathura zathura-pdf-mupdf zathura-djvu \
