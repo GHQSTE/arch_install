@@ -24,7 +24,7 @@ cd "$HOME" || exit
 
 rm -f .gitignore .bash_history
 
-source ~/.bashrc
+source ~/.bash_profile && source ~/.bashrc
 
 # AUR
 git clone --depth 1 https://aur.archlinux.org/yay.git ~/.local/src/yay \

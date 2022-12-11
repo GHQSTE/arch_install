@@ -23,7 +23,7 @@ mount --mkdir "$efi_system_partition" /mnt/boot
 swapon "$swap_partition"
 
 echo "Server = http://mirror.xeonbd.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
-pacstrap -K /mnt base base-devel linux-zen linux-firmware intel-ucode xf86-video-ati
+pacstrap -K /mnt base base-devel linux-zen linux-firmware intel-ucode xf86-video-ati man-db man-pages
 genfstab -U /mnt >> /mnt/etc/fstab
 sed '1,/^#part2$/d' $(basename "$0") > /mnt/arch_install2.sh
 chmod +x /mnt/arch_install2.sh
@@ -47,7 +47,7 @@ echo "127.0.1.1       $hostname"
 echo "Enter root/superuser password:" ; passwd
 
 pacman -S --noconfirm \
-  neovim vim git stow zsh rsync man-db man-pages \
+  neovim git stow zsh rsync \
   grub efibootmgr networkmanager dhcpcd
 
 systemctl enable NetworkManager
