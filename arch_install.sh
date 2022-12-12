@@ -53,7 +53,7 @@ pacman -S --noconfirm \
 systemctl enable NetworkManager
 sed -i 's/^# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
 echo "Enter username:" ; read -r username
-useradd -m -G wheel -s /bin/bash "$username" ; passwd "$username"
+useradd -m -G wheel -s /usr/bin/zsh "$username" ; passwd "$username"
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 echo "Pre-Installation Finished, Reboot Now"

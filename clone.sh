@@ -10,12 +10,6 @@ rm -rf .bash_profile .bashrc .bash_login .bash_history .bash_logout \
 mkdir -p ~/.config ~/.local/state/bash ~/.local/state/zsh ~/.local/state/mpd \
   ~/.local/state/mpd/playlists ~/.local/state/ncmpcpp ~/.cache ~/.vim/undo
 
-# xdg-user-dirs
-mkdir -p \
-  ~/xdg-user-dirs/Downloads ~/xdg-user-dirs/Music ~/xdg-user-dirs/Pictures \
-  ~/xdg-user-dirs/Videos ~/xdg-user-dirs/Documents ~/xdg-user-dirs/Desktop \
-  ~/xdg-user-dirs/Templates ~/xdg-user-dirs/Public
-
 # dotfiles
 git clone https://github.com/GHQSTE/dotfiles.git ~/.dotfiles \
   && cd .dotfiles/ && stow .
@@ -48,6 +42,7 @@ yay -S --useask --noconfirm \
   xwallpaper xdotool xclip xsel xbindkeys xcompmgr pass trash-cli \
   bash-completion xdg-user-dirs npm ripgrep fd nnn slock discord nsxiv
 
+xdg-user-dirs-update
 sudo npm install -g npm
 
 # Installing python tools/programs
@@ -77,6 +72,9 @@ git clone --depth 1 https://github.com/jcs/xbanish.git ~/.local/src/suckless/roc
 
 git clone --depth 1 https://github.com/pystardust/ani-cli ~/.local/src/ani-cli \
   && sudo cp ~/.local/src/ani-cli/ani-cli /usr/local/bin/ani-cli
+
+git clone --recurse-submodules https://github.com/fairyglade/ly ~/.local/src/ly \
+  && cd ~/.local/src/ly && make && sudo make install installsystemd && sudo systemctl enable ly.service
 
 cd "$HOME" || exit
 fc-cache -fv
