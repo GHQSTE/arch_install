@@ -23,7 +23,7 @@ mount --mkdir "$efi_system_partition" /mnt/boot
 swapon "$swap_partition"
 
 echo "Server = http://mirror.xeonbd.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
-pacstrap -K /mnt base base-devel linux-zen linux-firmware intel-ucode xf86-video-ati man-db man-pages
+pacstrap -K /mnt base base-devel linux linux-firmware intel-ucode xf86-video-ati man-db man-pages
 genfstab -U /mnt >> /mnt/etc/fstab
 sed '1,/^#part2$/d' $(basename "$0") > /mnt/arch_install2.sh
 chmod +x /mnt/arch_install2.sh
