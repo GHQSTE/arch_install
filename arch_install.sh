@@ -86,7 +86,7 @@ mkdir -p ~/.config ~/.local/state/bash ~/.local/state/zsh ~/.local/state/mpd \
 git clone https://github.com/GHQSTE/dotfiles.git ~/.dotfiles \
   && cd .dotfiles/ && stow .
 
-cd "$HOME" || exit
+cd ~
 
 rm -f .gitignore .bash_history
 
@@ -94,7 +94,7 @@ source ~/.zshenv ; source ~/.zprofile
 
 # AUR
 git clone --depth 1 https://aur.archlinux.org/yay.git ~/.local/src/yay \
-  && cd ~/.local/src/yay && makepkg -si --noconfirm && cd "$HOME" || exit
+  && cd ~/.local/src/yay && makepkg -si --noconfirm && cd ~
 
 # fonts
 yay -S --useask --noconfirm \
@@ -147,7 +147,7 @@ git clone --depth 1 https://github.com/jcs/xbanish.git ~/.local/src/suckless/roc
 git clone --depth 1 https://github.com/pystardust/ani-cli ~/.local/src/ani-cli \
   && sudo cp ~/.local/src/ani-cli/ani-cli /usr/local/bin/ani-cli
 
-cd "$HOME" || exit
+cd ~
 fc-cache -fv
 sh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.sh)
 
