@@ -18,7 +18,7 @@ cd "$HOME" || exit
 
 rm -f .gitignore .bash_history
 
-source ~/.bash_profile && source ~/.bashrc
+source ~/.zshenv ; source ~/.zprofile
 
 # AUR
 git clone --depth 1 https://aur.archlinux.org/yay.git ~/.local/src/yay \
@@ -30,8 +30,10 @@ yay -S --useask --noconfirm \
   nerd-fonts-jetbrains-mono
 
 yay -S --useask --noconfirm \
-  pipewire pipewire-pulse wireplumber \
-  mpv ffmpeg alsa-utils pulsemixer mpd playerctl ncmpcpp obs-studio \
+  pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber \
+  mpv ffmpeg alsa-utils pulsemixer mpd playerctl ncmpcpp obs-studio
+
+yay -S --useask --noconfirm \
   xorg xorg-xinit \
   zathura zathura-pdf-mupdf zathura-djvu \
   wget aria2 tmux \
@@ -72,9 +74,6 @@ git clone --depth 1 https://github.com/jcs/xbanish.git ~/.local/src/suckless/roc
 
 git clone --depth 1 https://github.com/pystardust/ani-cli ~/.local/src/ani-cli \
   && sudo cp ~/.local/src/ani-cli/ani-cli /usr/local/bin/ani-cli
-
-git clone --recurse-submodules https://github.com/fairyglade/ly ~/.local/src/ly \
-  && cd ~/.local/src/ly && make && sudo make install installsystemd && sudo systemctl enable ly.service
 
 cd "$HOME" || exit
 fc-cache -fv
