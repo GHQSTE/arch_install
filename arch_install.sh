@@ -114,7 +114,7 @@ yay -S --useask --noconfirm \
   shellcheck checkbashisms libnotify android-tools \
   flameshot maim redshift neofetch screenkey firefox \
   xwallpaper xdotool xclip xsel xbindkeys xcompmgr pass trash-cli \
-  bash-completion xdg-user-dirs npm ripgrep fd nnn slock discord nsxiv
+  bash-completion xdg-user-dirs npm ripgrep fd nnn slock discord nsxiv kitty
 
 xdg-user-dirs-update
 sudo npm install -g npm
@@ -123,16 +123,11 @@ sudo npm install -g npm
 python3 -m pip install -U --user wheel
 python3 -m pip install -U --user pywal dbus-python yt-dlp
 
-# suckless software
+# suckless
 git clone --depth 1 https://github.com/GHQSTE/dwm ~/.local/src/suckless/dwm \
   && cd ~/.local/src/suckless/dwm && sudo make clean install \
   && make clean && rm -f config.h
 
-git clone --depth 1 https://github.com/GHQSTE/st ~/.local/src/suckless/st \
-  && cd ~/.local/src/suckless/st && sudo make clean install \
-  && make clean && rm -f config.h
-
-# suckless tools
 git clone --depth 1 https://github.com/GHQSTE/dmenu ~/.local/src/suckless/dmenu \
   && cd ~/.local/src/suckless/dmenu && sudo make clean install \
   && make clean && rm -f config.h
