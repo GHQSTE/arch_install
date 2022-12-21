@@ -117,6 +117,11 @@ yay -S --useask --noconfirm \
   bash-completion xdg-user-dirs npm ripgrep fd nnn slock discord nsxiv kitty
 
 xdg-user-dirs-update
+
+# riverwm
+yay -S --useask --noconfirm \
+  river
+
 sudo npm install -g npm
 
 # Installing python tools/programs
@@ -138,9 +143,6 @@ git clone --depth 1 https://github.com/GHQSTE/grabc ~/.local/src/suckless/rocks/
 
 git clone --depth 1 https://github.com/jcs/xbanish.git ~/.local/src/suckless/rocks/xbanish \
   && cd ~/.local/src/suckless/rocks/xbanish && sudo make clean install
-
-git clone --depth 1 https://github.com/pystardust/ani-cli ~/.local/src/ani-cli \
-  && sudo cp ~/.local/src/ani-cli/ani-cli /usr/local/bin/ani-cli
 
 cd ~
 fc-cache -fv
