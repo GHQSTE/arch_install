@@ -120,7 +120,7 @@ xdg-user-dirs-update
 
 # riverwm
 yay -S --useask --noconfirm \
-  river
+  river foot imv
 
 sudo npm install -g npm
 
