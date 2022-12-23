@@ -87,10 +87,7 @@ git clone https://github.com/GHQSTE/dotfiles.git ~/.dotfiles \
   && cd .dotfiles/ && stow .
 
 cd ~
-
 rm -f .gitignore .bash_history
-
-source ~/.zprofile ; source ~/.zshenv
 
 # yay - Yet Another Yogurt - An AUR Helper Written in Go
 git clone --depth 1 https://aur.archlinux.org/yay.git ~/.local/src/yay \
@@ -114,7 +111,7 @@ yay -S --useask --noconfirm \
 yay -S --useask --noconfirm \
   zathura zathura-pdf-mupdf zathura-djvu \
   wget aria2 tmux \
-  python python-pip imagemagick wayshot-bin wl-copy slurp \
+  python python-pip imagemagick wayshot-bin wl-clipboard slurp \
   zip unzip dosfstools exfatprogs ntfs-3g \
   shellcheck checkbashisms libnotify android-tools \
   redshift neofetch firefox \
