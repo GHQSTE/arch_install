@@ -53,7 +53,7 @@ echo "127.0.1.1       $hostname"
 echo "Enter root/superuser password:" ; passwd
 
 pacman -S --noconfirm \
-  neovim git stow zsh \
+  neovim git stow zsh rsync \
   grub efibootmgr networkmanager dhcpcd
 
 systemctl enable NetworkManager
@@ -92,5 +92,61 @@ rm -f .gitignore .bash_history
 # yay - Yet Another Yogurt - An AUR Helper Written in Go
 git clone --depth 1 https://aur.archlinux.org/yay.git ~/.local/src/yay \
   && cd ~/.local/src/yay && makepkg -si --noconfirm && cd ~
+
+# fonts
+yay -S --useask --noconfirm \
+  noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra libertinus-font \
+  nerd-fonts-jetbrains-mono
+
+yay -S --useask --noconfirm \
+  pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber \
+  mpv ffmpeg alsa-utils pulsemixer pamixer mpd playerctl ncmpcpp obs-studio
+
+# dependencies to build wlroots n river
+yay -S --devel \
+  zig wayland wayland-protocols xorg-xwayland seatd xcb-util-errors libxkbcommon \
+  libevdev pixman scdoc
+
+git clone https://gitlab.freedesktop.org/wlroots/wlroots.git ~/.local/src/wlroots
+cd ~/.local/src/wlroots
+git switch 0.16
+meson setup build/
+ninja -C build/
+sudo ninja -C build/ install
+
+git clone https://github.com/riverwm/river.git ~/.local/src/river
+cd ~/.local/src/river
+git submodule update --init
+zig build -Drelease-safe --prefix ~/.local install
+
+# riverwm
+yay -S --useask --noconfirm \
+  river polkit polkit-dumb-agent-git foot wlr-randr bemenu-wayland \
+  imv mako grim swww gifsicle
+
+yay -S --useask --noconfirm \
+  zathura zathura-pdf-mupdf zathura-djvu \
+  wget aria2 tmux \
+  python python-pip imagemagick wayshot-bin wl-clipboard slurp \
+  zip unzip dosfstools exfatprogs ntfs-3g \
+  shellcheck checkbashisms libnotify android-tools \
+  redshift neofetch firefox \
+  pass trash-cli exa \
+  bash-completion xdg-user-dirs npm ripgrep fd nnn discord nsxiv
+
+xdg-user-dirs-update
+
+sudo npm install -g npm
+
+# Installing python tools/programs
+python3 -m pip install -U --user wheel
+python3 -m pip install -U --user pywal dbus-python yt-dlp
+
+cd ~
+fc-cache -fv
+sh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.sh)
+
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 
 exit
