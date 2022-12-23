@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #part1
 clear
@@ -90,9 +90,9 @@ cd ~
 
 rm -f .gitignore .bash_history
 
-source ~/.zshenv ; source ~/.zprofile
+source ~/.zprofile ; source ~/.zshenv
 
-# AUR
+# yay - Yet Another Yogurt - An AUR Helper Written in Go
 git clone --depth 1 https://aur.archlinux.org/yay.git ~/.local/src/yay \
   && cd ~/.local/src/yay && makepkg -si --noconfirm && cd ~
 
@@ -103,7 +103,7 @@ yay -S --useask --noconfirm \
 
 yay -S --useask --noconfirm \
   pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber \
-  mpv ffmpeg alsa-utils pulsemixer mpd playerctl ncmpcpp obs-studio
+  mpv ffmpeg alsa-utils pulsemixer pamixer mpd playerctl ncmpcpp obs-studio
 
 yay -S --useask --noconfirm \
   xorg xorg-xinit \
@@ -120,7 +120,8 @@ xdg-user-dirs-update
 
 # riverwm
 yay -S --useask --noconfirm \
-  river foot imv
+  river polkit polkit-dumb-agent-git foot wlr-randr bemenu-wayland \
+  imv mako
 
 sudo npm install -g npm
 
