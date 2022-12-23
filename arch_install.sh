@@ -105,23 +105,23 @@ yay -S --useask --noconfirm \
   pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber \
   mpv ffmpeg alsa-utils pulsemixer pamixer mpd playerctl ncmpcpp obs-studio
 
-yay -S --useask --noconfirm \
-  xorg-xwayland \
-  zathura zathura-pdf-mupdf zathura-djvu \
-  wget aria2 tmux \
-  python python-pip imagemagick \
-  zip unzip dosfstools exfatprogs ntfs-3g \
-  shellcheck checkbashisms libnotify android-tools \
-  wayshot-bin wl-copy redshift neofetch firefox \
-  pass trash-cli \
-  bash-completion xdg-user-dirs npm ripgrep fd nnn discord nsxiv
-
-xdg-user-dirs-update
 
 # riverwm
 yay -S --useask --noconfirm \
   river polkit polkit-dumb-agent-git foot wlr-randr bemenu-wayland \
   imv mako
+
+yay -S --useask --noconfirm \
+  zathura zathura-pdf-mupdf zathura-djvu \
+  wget aria2 tmux \
+  python python-pip imagemagick wayshot-bin wl-copy slurp \
+  zip unzip dosfstools exfatprogs ntfs-3g \
+  shellcheck checkbashisms libnotify android-tools \
+  redshift neofetch firefox \
+  pass trash-cli exa \
+  bash-completion xdg-user-dirs npm ripgrep fd nnn discord nsxiv
+
+xdg-user-dirs-update
 
 sudo npm install -g npm
 
