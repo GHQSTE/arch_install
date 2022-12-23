@@ -106,15 +106,15 @@ yay -S --useask --noconfirm \
   mpv ffmpeg alsa-utils pulsemixer pamixer mpd playerctl ncmpcpp obs-studio
 
 yay -S --useask --noconfirm \
-  xorg xorg-xinit \
+  xorg-xwayland \
   zathura zathura-pdf-mupdf zathura-djvu \
   wget aria2 tmux \
   python python-pip imagemagick \
   zip unzip dosfstools exfatprogs ntfs-3g \
   shellcheck checkbashisms libnotify android-tools \
-  flameshot maim redshift neofetch screenkey firefox \
-  xwallpaper xdotool xclip xsel xbindkeys xcompmgr pass trash-cli \
-  bash-completion xdg-user-dirs npm ripgrep fd nnn slock discord nsxiv kitty
+  wayshot-bin wl-copy redshift neofetch firefox \
+  pass trash-cli \
+  bash-completion xdg-user-dirs npm ripgrep fd nnn discord nsxiv
 
 xdg-user-dirs-update
 
@@ -128,22 +128,6 @@ sudo npm install -g npm
 # Installing python tools/programs
 python3 -m pip install -U --user wheel
 python3 -m pip install -U --user pywal dbus-python yt-dlp
-
-# suckless
-git clone --depth 1 https://github.com/GHQSTE/dwm ~/.local/src/suckless/dwm \
-  && cd ~/.local/src/suckless/dwm && sudo make clean install \
-  && make clean && rm -f config.h
-
-git clone --depth 1 https://github.com/GHQSTE/dmenu ~/.local/src/suckless/dmenu \
-  && cd ~/.local/src/suckless/dmenu && sudo make clean install \
-  && make clean && rm -f config.h
-
-# Stuff that rocks
-git clone --depth 1 https://github.com/GHQSTE/grabc ~/.local/src/suckless/rocks/grabc \
-  && cd ~/.local/src/suckless/rocks/grabc && make && sudo make install
-
-git clone --depth 1 https://github.com/jcs/xbanish.git ~/.local/src/suckless/rocks/xbanish \
-  && cd ~/.local/src/suckless/rocks/xbanish && sudo make clean install
 
 cd ~
 fc-cache -fv
