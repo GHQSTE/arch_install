@@ -106,7 +106,7 @@ yay -S --useask --noconfirm \
 # riverwm
 yay -S --useask --noconfirm \
   river polkit polkit-dumb-agent-git foot wlr-randr bemenu-wayland \
-  imv mako
+  imv mako wbg
 
 yay -S --useask --noconfirm \
   zathura zathura-pdf-mupdf zathura-djvu \
