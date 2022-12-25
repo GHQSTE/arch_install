@@ -38,7 +38,11 @@ exit
 
 #part2
 sed -i 's/^#Color/Color/' /etc/pacman.conf
-sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
+sed -i 's/^#CheckSpace/CheckSpace/' /etc/pacman.conf
+sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 10/' /etc/pacman.conf
+sed -i 's/^ParallelDownloads = 10/&\nILoveCandy/' /etc/pacman.conf
+sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
+
 ln -sf /usr/share/zoneinfo/Asia/Dhaka /etc/localtime
 hwclock --systohc
 sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
@@ -94,13 +98,13 @@ git clone --depth 1 https://aur.archlinux.org/yay.git ~/.local/src/yay \
   && cd ~/.local/src/yay && makepkg -si --noconfirm && cd ~
 
 # fonts
-yay -S --useask --noconfirm \
-  noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra libertinus-font \
+yay -S \
+  noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra \
   nerd-fonts-jetbrains-mono
 
-yay -S --useask --noconfirm \
-  pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber \
-  mpv ffmpeg alsa-utils pulsemixer pamixer mpd playerctl ncmpcpp obs-studio
+yay -S \
+  ffmpeg pipewire-alsa pipewire-pulse pipewire-jack wireplumber \
+  mpv mpd ncmpcpp pamixer playerctl alsa-utils pulsemixer obs-studio
 
 # dependencies to build wlroots n river
 yay -S --devel \
