@@ -79,9 +79,6 @@ exit
 #part3
 cd ~
 
-rm -rf .bash_profile .bashrc .bash_login .bash_history .bash_logout \
-  .cache/ .viminfo
-
 # dirs
 mkdir -p ~/.config ~/.local/state/bash ~/.local/state/zsh ~/.local/state/mpd \
   ~/.local/state/mpd/playlists ~/.local/state/ncmpcpp ~/.cache ~/.vim/undo
@@ -91,7 +88,7 @@ git clone https://github.com/GHQSTE/dotfiles.git ~/.dotfiles \
   && cd .dotfiles/ && stow .
 
 cd ~
-rm -f .gitignore .bash_history
+rm -f .gitignore
 
 # yay - Yet Another Yogurt - An AUR Helper Written in Go
 git clone --depth 1 https://aur.archlinux.org/yay.git ~/.local/src/yay \
@@ -106,26 +103,26 @@ yay -S \
   ffmpeg pipewire-alsa pipewire-pulse pipewire-jack wireplumber \
   mpv mpd ncmpcpp pamixer playerctl alsa-utils pulsemixer obs-studio
 
-# dependencies to build wlroots n river
-yay -S --devel \
-  zig wayland wayland-protocols xorg-xwayland seatd xcb-util-errors libxkbcommon \
-  libevdev pixman scdoc
-
-git clone https://gitlab.freedesktop.org/wlroots/wlroots.git ~/.local/src/wlroots
-cd ~/.local/src/wlroots
-git switch 0.16
-meson setup build/
-ninja -C build/
-sudo ninja -C build/ install
-
-git clone https://github.com/riverwm/river.git ~/.local/src/river
-cd ~/.local/src/river
-git submodule update --init
-zig build -Drelease-safe --prefix ~/.local install
+## dependencies to build wlroots n river
+#yay -S --devel \
+#  zig wayland wayland-protocols xorg-xwayland seatd xcb-util-errors libxkbcommon \
+#  libevdev pixman scdoc
+#
+#git clone https://gitlab.freedesktop.org/wlroots/wlroots.git ~/.local/src/wlroots
+#cd ~/.local/src/wlroots
+#git switch 0.16
+#meson setup build/
+#ninja -C build/
+#sudo ninja -C build/ install
+#
+#git clone https://github.com/riverwm/river.git ~/.local/src/river
+#cd ~/.local/src/river
+#git submodule update --init
+#zig build -Drelease-safe --prefix ~/.local install
 
 # riverwm
 yay -S --useask --noconfirm \
-  river polkit polkit-dumb-agent-git foot wlr-randr bemenu-wayland \
+  river-git polkit polkit-dumb-agent-git foot wlr-randr bemenu-wayland \
   imv mako grim swww gifsicle
 
 yay -S --useask --noconfirm \
